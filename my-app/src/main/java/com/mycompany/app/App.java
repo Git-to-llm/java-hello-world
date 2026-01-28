@@ -9,5 +9,8 @@ public class App {
 
         // The following line is a deliberate mistake
         System.out.println("Bad Sample Change")    // Missing semicolon
+
+
+        System.out.println(null);
     }
 }
