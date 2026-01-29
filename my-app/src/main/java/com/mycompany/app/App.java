@@ -8,6 +8,7 @@ public class App {
         System.out.println("Hello World!!");
 
         System.out.println("Sample good change");
+        System.out.println("Sample good change on another commit");
         
     }
 }
