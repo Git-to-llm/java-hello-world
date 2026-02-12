@@ -1,18 +1,33 @@
-@@ -1192,15 +1192,16 @@ type BlockServer interface {
- 	// If this returns a BServerErrorOverQuota, with Throttled=false,
- 	// the caller can treat it as informational and otherwise ignore
- 	// the error.
-	Put(ctx context.Context, tlfID tlf.ID, id kbfsblock.ID, context kbfsblock.Context,
- 		buf []byte, serverHalf kbfscrypto.BlockCryptKeyServerHalf) error
-		
- 	// AddBlockReference adds a new reference to the given block,
-	// defined by the given context (which should contain a non-zero
-	// BlockRefNonce).  (Contexts with a BlockRefNonce of zero should
-	// be used when putting the block for the first time via Put().)
-	// Returns a BServerErrorBlockNonExistent if id is unknown within
-	// this folder.
- 	//
- 	// AddBlockReference should be idempotent, although it should
- 	// also return an error if, for a given ID and refnonce, any
-
-
+func NewRecordReplayClient(ctx context.Context, t *testing.T, rf func(r *httprep
+ 			t.Fatal(err)
+ 		}
+ 		rf(rec)
+		c, err = rec.Client(ctx, opts...)
+		if err != nil {
+			t.Fatal(err)
+		}
+ 		cleanup = func() {
+ 			if err := rec.Close(); err != nil {
+ 				t.Fatal(err)
+ 			}
+ 		}
+ 
+		return c, cleanup, state.UnixNano()
+ 	}
+ 	t.Logf("Replaying from golden file %s", path)
+ 	rep, err := httpreplay.NewReplayer(path)
+ 	if err != nil {
+ 		t.Fatal(err)
+ 	}
+	c, err = rep.Client(ctx)
+	if err != nil {
+		t.Fatal(err)
+	}
+ 	recState := new(time.Time)
+ 	if err := recState.UnmarshalBinary(rep.Initial()); err != nil {
+ 		t.Fatal(err)
+ 	}
+	return c, func() { rep.Close() }, recState.UnixNano()
+ }
+ 
+ // NewAWSSession creates a new session for testing against AWS.
