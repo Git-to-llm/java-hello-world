@@ -2,8 +2,9 @@
  	// If this returns a BServerErrorOverQuota, with Throttled=false,
  	// the caller can treat it as informational and otherwise ignore
  	// the error.
-	Put(ctx context.Context, tlfID tlf.ID, id BlockID, context BlockContext,
- 
+	Put(ctx context.Context, tlfID tlf.ID, id kbfsblock.ID, context kbfsblock.Context,
+ 		buf []byte, serverHalf kbfscrypto.BlockCryptKeyServerHalf) error
+		
  	// AddBlockReference adds a new reference to the given block,
 	// defined by the given context (which should contain a non-zero
 	// BlockRefNonce).  (Contexts with a BlockRefNonce of zero should
