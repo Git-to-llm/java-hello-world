@@ -1,3 +1,4 @@
 components:
-  model: qwen-reviewer-4B-Q4
+  model: qwen-reviewer-4B
   auto-merge: true
+  merge-strategy: sequential
