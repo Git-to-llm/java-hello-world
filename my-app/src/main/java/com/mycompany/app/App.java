@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
  * Hello world!
  */
 public class App {
+    static final int MAX_RETRIES = 3;
+
     public static void main(String[] args) throws Exception {
         System.out.println("Hello World!!");
 
