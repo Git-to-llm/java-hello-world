@@ -10,5 +10,6 @@ public class App {
         System.out.println("Sample good change");
         System.out.println("Sample good change on another commit");
         System.out.println("Initialising...");
+        System.out.println("Done.");
     }
 }
