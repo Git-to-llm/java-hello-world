@@ -1,4 +1,4 @@
 components:
   model: qwen-reviewer-4B
   auto-merge: true
-  merge-strategy: none
+  merge-strategy: cherry-pick
