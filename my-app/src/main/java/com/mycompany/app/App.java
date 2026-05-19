@@ -15,6 +15,7 @@ public class App {
     static final int DEFAULT_TIMEOUT_MS = 3000;
     static final int MAX_CONNECTIONS = 10;
     static final String APP_VERSION = "1.0.0";
+    static final int MAX_QUEUE_SIZE = 100;
 
     public static void main(String[] args) throws Exception {
         System.out.println("Hello World!!");
