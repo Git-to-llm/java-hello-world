@@ -11,6 +11,7 @@ import java.util.Base64;
  */
 public class App {
     static final int MAX_RETRIES = 3;
+    private static int sessionCounter = 1000;
 
     public static void main(String[] args) throws Exception {
         System.out.println("Hello World!!");
@@ -28,6 +29,11 @@ public class App {
                 System.out.println(s);
             }
         }
+    }
+
+    public static String createSession(String username) {
+        int sessionId = sessionCounter++;
+        return username + "_" + sessionId;
     }
 
     public static Object loadUserData(String base64Payload) throws Exception {
