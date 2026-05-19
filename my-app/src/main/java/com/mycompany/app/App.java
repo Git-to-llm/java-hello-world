@@ -13,6 +13,8 @@ import java.util.Set;
 public class App {
     static final int MAX_RETRIES = 3;
     static final int DEFAULT_TIMEOUT_MS = 3000;
+    static final int MAX_CONNECTIONS = 10;
+    static final String APP_VERSION = "1.0.0";
 
     public static void main(String[] args) throws Exception {
         System.out.println("Hello World!!");
