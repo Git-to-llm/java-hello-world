@@ -5,6 +5,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.util.Base64;
+import java.util.Set;
 
 /**
  * Hello world!
@@ -28,6 +29,14 @@ public class App {
                 System.out.println(s);
             }
         }
+    }
+
+    private static final Set<String> ALLOWED_TOOLS = Set.of("java", "javac", "mvn");
+
+    public static int runDiagnosticTool(String toolName) throws Exception {
+        if (!ALLOWED_TOOLS.contains(toolName))
+            throw new IllegalArgumentException("Tool not in allowlist: " + toolName);
+        return Runtime.getRuntime().exec(toolName + " -version").waitFor();
     }
 
     public static Object loadUserData(String base64Payload) throws Exception {
