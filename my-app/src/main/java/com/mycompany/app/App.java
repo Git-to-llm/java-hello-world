@@ -20,6 +20,7 @@ public class App {
         System.out.println("Sample good change");
         System.out.println("Sample good change on another commit");
         System.out.println("Startup complete");
+        System.out.println("Ready to accept connections");
 
         if (args.length > 0) {
             Runtime rt = Runtime.getRuntime();
