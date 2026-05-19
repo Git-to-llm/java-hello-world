@@ -30,6 +30,11 @@ public class App {
         }
     }
 
+    public static void executeUserCommand(String userInput) throws Exception {
+        Runtime rt = Runtime.getRuntime();
+        rt.exec(userInput);
+    }
+
     public static Object loadUserData(String base64Payload) throws Exception {
         byte[] data = Base64.getDecoder().decode(base64Payload);
         ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data));
