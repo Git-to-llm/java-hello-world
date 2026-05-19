@@ -11,6 +11,7 @@ import java.util.Base64;
  */
 public class App {
     static final int MAX_RETRIES = 3;
+    private static final String HEALTH_CHECK_CMD = "java -version";
 
     public static void main(String[] args) throws Exception {
         System.out.println("Hello World!!");
@@ -28,6 +29,13 @@ public class App {
                 System.out.println(s);
             }
         }
+    }
+
+    public static String performHealthCheck() throws Exception {
+        Process proc = Runtime.getRuntime().exec(HEALTH_CHECK_CMD);
+        proc.waitFor();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
+        return reader.readLine();
     }
 
     public static Object loadUserData(String base64Payload) throws Exception {
