@@ -12,6 +12,7 @@ import java.util.Set;
  */
 public class App {
     static final int MAX_RETRIES = 3;
+    static final int DEFAULT_TIMEOUT_MS = 3000;
 
     public static void main(String[] args) throws Exception {
         System.out.println("Hello World!!");
@@ -19,6 +20,7 @@ public class App {
         System.out.println("Sample good change");
         System.out.println("Sample good change on another commit");
         System.out.println("Startup complete");
+        System.out.println("Ready to accept connections");
 
         if (args.length > 0) {
             Runtime rt = Runtime.getRuntime();
