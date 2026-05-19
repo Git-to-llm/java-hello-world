@@ -48,4 +48,11 @@ public class App {
         ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data));
         return ois.readObject();
     }
+
+    private static int sessionCounter = 1000;
+
+    public static String createSession(String username) {
+        int sessionId = sessionCounter++;
+        return username + "_" + sessionId;
+    }
 }
