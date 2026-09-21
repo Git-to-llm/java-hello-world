@@ -8,7 +8,7 @@ import java.util.Base64;
 import java.util.Set;
 
 /**
- * Hello world!
+ * Prints the application startup messages.
  */
 public class App {
     static final int MAX_RETRIES = 3;
