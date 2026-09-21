@@ -15,6 +15,7 @@ public class HiveTables {
         this.tableName = tableName;
     }
 
+    /** Returns the configured table name. */
     public String getTableName() {
         return tableName;
     }
