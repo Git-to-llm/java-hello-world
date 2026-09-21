@@ -1,4 +1,4 @@
 components:
   model: qwen4B
   auto-merge: true
-  merge-strategy: cherry-pick
+  merge-strategy: sequential
